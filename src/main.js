@@ -1,4 +1,5 @@
 import "./style.css";
+import { html } from "../src/utils/template.js";
 import { Navbar } from "./components/navbar.js";
 import { Sidebar } from "./components/sidebar.js";
 import { Footer } from "./components/footer.js";
@@ -24,18 +25,18 @@ class App {
   }
 
   setupHTML() {
-    document.querySelector("#app").innerHTML = `
+    document.querySelector("#app").innerHTML = html`
       <div class="min-h-screen bg-gray-50">
         <!-- Main Layout -->
         <div class="flex">
           <!-- Sidebar -->
           <div id="sidebar" class="hidden lg:block"></div>
-          
+
           <!-- Content Area -->
           <div class="flex-1 ">
             <!-- Navbar -->
             <div id="navbar"></div>
-            
+
             <!-- Main Content -->
             <main id="main-content" class="pt-16 p-6">
               <div class="max-w-6xl mx-auto">
@@ -44,14 +45,27 @@ class App {
             </main>
           </div>
         </div>
-        
+
         <!-- Footer -->
         <div id="footer" class=""></div>
-        
+
         <!-- Mobile Sidebar Toggle Button -->
-        <button id="mobile-sidebar-toggle" class="lg:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <button
+          id="mobile-sidebar-toggle"
+          class="lg:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
           </svg>
         </button>
       </div>

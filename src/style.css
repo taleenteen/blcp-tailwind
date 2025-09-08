@@ -1,1 +1,217 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "DBHelvethaicaMonX";
+  src: url("../src/assets/fonts/DB_HelvethaicaMon_X.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "DBHelvethaicaMonX", sans-serif;
+}
+
+@theme {
+  /* สีตามการใช้งาน */
+  --color-surface-primary: #0e3f64;
+  --color-surface-secondary: #f6f6ff;
+  --color-surface-header: #1e293b;
+
+  /* สีสำหรับ action */
+  --color-action-primary: #10b981;
+  --color-action-hover: #059669;
+  --color-action-disabled: #9ca3af;
+
+  /* สีแบรนด์ */
+  --color-brand-primary: #3b82f6;
+  --color-brand-secondary: #10b981;
+  --color-brand-accent: #f59e0b;
+
+  /* สี neutral */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+
+  /* สี semantic */
+  --color-semantic-success: #10b981;
+  --color-semantic-error: #ef4444;
+  --color-semantic-warning: #f59e0b;
+  --color-semantic-info: #3b82f6;
+
+  /* สีปุ่มเฉพาะ (สีเขียวแนวใหม่) */
+  --color-cta: #bed84e;
+  --color-cta-dark: #a4c639;
+  --color-cta-light: #d4e76b;
+}
+
+@layer components {
+  /* Base Button */
+  .btn {
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition-property: all;
+    transition-duration: 200ms;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  /* CTA Button with Gradient */
+  .btn-cta {
+    padding: 5px;
+    background: var(--color-cta);
+    color: var(--color-surface-primary);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-3xl);
+    line-height: 100%;
+    min-width: 180px;
+    min-height: 42px;
+    cursor: pointer;
+
+    &:hover {
+      @media (hover: hover) {
+        /*
+          * to right: กำหนดทิศทางของ gradient จากซ้ายไปขวา
+          * var(--color-cta): สีเริ่มต้น (ด้านซ้าย)
+          * #ffffff: สีสิ้นสุด (ด้านขวา)
+        */
+        background: linear-gradient(to right, var(--color-cta), #ffffff);
+        /* อาจจะต้องปรับสีตัวอักษรตอน hover เพื่อให้อ่านง่ายขึ้น */
+      }
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.98);
+    }
+  }
+
+  .btn-cta-secondary {
+    padding: 5px;
+    background: #f6f6ff;
+    color: var(--color-surface-primary);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-3xl);
+    line-height: 100%;
+    min-width: 180px;
+    min-height: 42px;
+    cursor: pointer;
+
+    &:hover {
+      @media (hover: hover) {
+        /*
+          * to right: กำหนดทิศทางของ gradient จากซ้ายไปขวา
+          * var(--color-cta): สีเริ่มต้น (ด้านซ้าย)
+          * #ffffff: สีสิ้นสุด (ด้านขวา)
+        */
+        background: linear-gradient(to right, #d9d9d9, #ffffff);
+        /* อาจจะต้องปรับสีตัวอักษรตอน hover เพื่อให้อ่านง่ายขึ้น */
+      }
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.98);
+    }
+  }
+
+  /* CTA Outline Button */
+  .btn-cta-outline {
+    border: 2px solid var(--color-cta);
+    color: var(--color-cta);
+    background: transparent;
+
+    &:hover {
+      @media (hover: hover) {
+        background: linear-gradient(
+          135deg,
+          var(--color-cta) 0%,
+          var(--color-cta-dark) 100%
+        );
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(190, 216, 78, 0.3);
+      }
+    }
+  }
+
+  /* Primary Action Button */
+  .btn-primary {
+    background-color: var(--color-action-primary);
+    color: white;
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-action-hover);
+      }
+    }
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-900);
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neutral-300);
+      }
+    }
+  }
+
+  /* Danger Button */
+  .btn-danger {
+    background-color: var(--color-semantic-error);
+    color: white;
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: #dc2626;
+      }
+    }
+  }
+
+  /* Button Sizes */
+  .btn-sm {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-lg {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+  }
+
+  .btn-xl {
+    padding-inline: 2.5rem;
+    padding-block: 1.25rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  /* Full width button */
+  .btn-full {
+    width: 100%;
+  }
+
+  /* Rounded button */
+  .btn-rounded {
+    border-radius: 9999px;
+  }
+}
