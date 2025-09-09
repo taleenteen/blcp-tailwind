@@ -5,6 +5,7 @@ export const translations = {
       home: "หน้าหลัก",
       about: "เกี่ยวกับเรา",
       services: "บริการ",
+      portfolio: "ผลงาน",
       contact: "ติดต่อ",
     },
     sidebar: {
@@ -46,6 +47,7 @@ export const translations = {
       home: "Home",
       about: "About",
       services: "Services",
+      portfolio: "Portfolio",
       contact: "Contact",
     },
     sidebar: {

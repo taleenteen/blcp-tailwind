@@ -49,6 +49,13 @@ body {
   --color-cta: #bed84e;
   --color-cta-dark: #a4c639;
   --color-cta-light: #d4e76b;
+  --color-cta-grey: #d9d9d9;
+
+  /* สีปุ่มการ์ด (สีเขียวแนวใหม่) */
+  --color-card: #a6ce39;
+
+  /* สี section */
+  --color-section-green: #f4f7ec;
 }
 
 @layer components {
@@ -213,5 +220,15 @@ body {
   /* Rounded button */
   .btn-rounded {
     border-radius: 9999px;
+  }
+}
+
+/* Shadow Utility Classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.85);
+  }
+  .section-shadow {
+    box-shadow: 0px 4px 1px 0px rgba(0, 102, 179, 0.1);
   }
 }

@@ -4,6 +4,7 @@ export class Router {
       // Simple routes
       "#home": () => import("../pages/home.js"),
       "#contact": () => import("../pages/contact.js"),
+      "#portfolio": () => import("../pages/portfolio.js"),
 
       // Nested routes for about
       "#about": () => import("../pages/about/index.js"),

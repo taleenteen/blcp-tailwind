@@ -38,7 +38,7 @@ class App {
             <div id="navbar"></div>
 
             <!-- Main Content -->
-            <main id="main-content" class="pt-16 p-6">
+            <main id="main-content" class="pt-16">
               <div class="max-w-6xl mx-auto">
                 <!-- Content will be loaded here by router -->
               </div>
@@ -122,8 +122,8 @@ class App {
 
   async reinitializeComponents() {
     await Promise.all([
-      this.navbar.init(),
-      this.sidebar.updateLanguage(), // ใช้ updateLanguage แทน init
+      this.navbar.updateLanguage(this.currentLang), // ใช้ updateLanguage แทน init
+      this.sidebar.updateLanguage(this.currentLang), // ใช้ updateLanguage แทน init
       this.footer.init(),
     ]);
 
